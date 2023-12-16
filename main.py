@@ -7,6 +7,7 @@ class Employee:
         self.pay = pay
         self.email = first + '.' + last + 'company.com'
 
+    @property
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
 
@@ -15,5 +16,5 @@ emp_1 = Employee("Corey", "Schafer", 50000)
 emp_2 = Employee("Jon", "Tracy", 60000)
 
 
-print(emp_1.fullname())
-print(emp_2.fullname())
+print(emp_1.fullname)
+print(emp_2.fullname)
