@@ -10,6 +10,7 @@ class Employee:
         self.pay = pay
         self.email = first + '.' + last + 'company.com'
 
+
     # @property
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
@@ -21,11 +22,16 @@ class Employee:
 emp_1 = Employee("Corey", "Schafer", 50000)
 emp_2 = Employee("Jon", "Tracy", 60000)
 
-
+Employee.raise_amount = 1.10
+# emp_2.raise_amount = 1.10
 print(emp_1.pay)
 emp_1.apply_raise()
 print(emp_1.pay)
 
 print(emp_2.pay)
+emp_2.apply_raise()
+print(emp_2.pay)
 
+# print(emp_1.__dict__)
+# print(Employee.__dict__)
 
