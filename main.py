@@ -11,9 +11,6 @@ class Employee:
         self.pay = pay
         self.email = first + '.' + last + '@company.com'
 
-        Employee.num_of_emps += 1
-
-    # @property
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
 
@@ -24,23 +21,15 @@ class Employee:
     def set_raise_amt(cls, amount):
         cls.raise_amt = amount
 
-    @classmethod
-    def from_str(cls, emp_str):
-        first, last, pay = emp_str.split('-')
-        return cls(first, last, pay)
 
-    @staticmethod
-    def is_workday(day):
-        if day.weekday() == 5 or day.weekday() == 6:
-            return False
-        else:
-            return True
+class Developer(Employee):
+    raise_amt = 1.10
 
 
-emp_1 = Employee("Corey", "Schafer", 50000)
-emp_2 = Employee("Jon", "Tracy", 60000)
+dev_1 = Developer("Corey", "Schafer", 50000)
+dev_2 = Developer("Jon", "Tracy", 60000)
 
-import datetime
-my_date = datetime.date(2023, 12, 17)
+print(dev_1.pay)
+Developer.apply_raise(dev_1)
+print(dev_1.pay)
 
-print(Employee.is_workday(my_date))
