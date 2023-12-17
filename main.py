@@ -29,12 +29,18 @@ class Employee:
         first, last, pay = emp_str.split('-')
         return cls(first, last, pay)
 
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or day.weekday() == 6:
+            return False
+        else:
+            return True
 
-emp_str_1 = 'John-Doe-70000'
-emp_str_2 = 'Steve-Smith-30000'
-emp_str_3 = 'Jane-Tracy-90000'
 
-new_emp_2 = Employee.from_str(emp_str_2)
+emp_1 = Employee("Corey", "Schafer", 50000)
+emp_2 = Employee("Jon", "Tracy", 60000)
 
+import datetime
+my_date = datetime.date(2023, 12, 17)
 
-print(new_emp_2.email)
+print(Employee.is_workday(my_date))
