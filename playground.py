@@ -6,6 +6,7 @@
 
 # ============= After 4 lesson =============
 
+# super().__init__(first, last, pay)
 
 
 
