@@ -9,7 +9,7 @@ class Employee:
         self.first = first
         self.last = last
         self.pay = pay
-        self.email = first + '.' + last + 'company.com'
+        self.email = first + '.' + last + '@company.com'
 
         Employee.num_of_emps += 1
 
@@ -24,13 +24,17 @@ class Employee:
     def set_raise_amt(cls, amount):
         cls.raise_amt = amount
 
+    @classmethod
+    def from_str(cls, emp_str):
+        first, last, pay = emp_str.split('-')
+        return cls(first, last, pay)
 
-emp_1 = Employee("Corey", "Schafer", 50000)
-emp_2 = Employee("Jon", "Tracy", 60000)
 
-Employee.set_raise_amt(1.05)
+emp_str_1 = 'John-Doe-70000'
+emp_str_2 = 'Steve-Smith-30000'
+emp_str_3 = 'Jane-Tracy-90000'
 
-print(Employee.raise_amt)
-print(emp_1.raise_amt)
-print(emp_2.raise_amt)
+new_emp_2 = Employee.from_str(emp_str_2)
 
+
+print(new_emp_2.email)
